@@ -1,0 +1,239 @@
+ROUTER A
+Red1
+access-list 101 permit tcp any host 10.0.0.2 eq 53
+access-list 101 permit udp any host 10.0.0.2 eq 53
+access-list 101 permit tcp 10.0.0.10 0.255.255.1 10.0.0.2 0.0.0.1 eq 23
+access-list 101 permit tcp 10.0.0.10 0.255.255.1 10.7.0.2 0.0.0.1 eq 23
+access-list 101 permit tcp 10.0.0.10 0.255.255.1 host 10.0.0.4 eq 23
+access-list 101 permit tcp 10.0.0.10 0.255.255.1 host 10.7.0.4 eq 23
+access-list 101 permit tcp 10.0.0.12 0.255.255.3 host 10.0.0.4 eq 23
+access-list 101 permit tcp 10.0.0.12 0.255.255.3 host 10.7.0.4 eq 23
+access-list 101 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 101 permit tcp 10.0.0.12 0.255.255.3 10.7.0.2 0.0.0.1 eq 23
+access-list 101 permit tcp 10.0.0.10 0.255.255.0 10.0.0.2 0.0.0.1 eq 3389
+access-list 101 permit tcp 10.1.0.0 0.0.0.255 host 10.0.0.2 eq 25
+access-list 101 permit tcp 10.1.0.0 0.0.0.255 host 10.0.0.2 eq 110
+access-list 101 permit tcp any host 10.7.0.2 eq 80
+access-list 101 permit tcp any host 10.7.0.2 eq 443
+access-list 101 permit tcp any host 10.7.0.2 eq 20
+access-list 101 permit tcp any host 10.7.0.2 eq 21
+access-list 101 permit tcp 10.1.0.0 0.0.0.255 host 10.7.0.3 eq 8300
+access-list 101 permit tcp any host 10.7.0.4 eq 5960
+
+Red2
+access-list 102 permit tcp any host 10.0.0.2 eq 53
+access-list 102 permit udp any host 10.0.0.2 eq 53
+access-list 102 permit tcp 10.0.0.10 0.255.255.1 10.0.0.2 0.0.0.1 eq 23
+access-list 102 permit tcp 10.0.0.10 0.255.255.1 10.7.0.2 0.0.0.1 eq 23
+access-list 102 permit tcp 10.0.0.10 0.255.255.1 host 10.0.0.4 eq 23
+access-list 102 permit tcp 10.0.0.10 0.255.255.1 host 10.7.0.4 eq 23
+access-list 102 permit tcp 10.0.0.12 0.255.255.3 host 10.0.0.4 eq 23
+access-list 102 permit tcp 10.0.0.12 0.255.255.3 host 10.7.0.4 eq 23
+access-list 102 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 102 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 102 permit tcp 10.0.0.10 0.255.255.0 10.0.0.2 0.0.0.1 eq 3389
+access-list 102 permit tcp 10.2.0.0 0.0.0.255 host 10.0.0.2 eq 25
+access-list 102 permit tcp 10.2.0.0 0.0.0.255 host 10.0.0.2 eq 110
+access-list 102 permit tcp any host 10.7.0.2 eq 80
+access-list 102 permit tcp any host 10.7.0.2 eq 443
+access-list 102 permit tcp any host 10.7.0.2 eq 20
+access-list 102 permit tcp any host 10.7.0.2 eq 21
+access-list 102 permit tcp 10.2.0.0 0.0.0.255 host 10.7.0.3 eq 8300
+access-list 102 permit tcp any host 10.7.0.4 eq 5960
+
+ROUTER B
+Red3
+access-list 103 permit tcp any host 10.0.0.2 eq 53
+access-list 103 permit udp any host 10.0.0.2 eq 53
+access-list 103 permit tcp 10.0.0.10 0.255.255.1 10.0.0.2 0.0.0.1 eq 23
+access-list 103 permit tcp 10.0.0.10 0.255.255.1 10.7.0.2 0.0.0.1 eq 23
+access-list 103 permit tcp 10.0.0.10 0.255.255.1 host 10.0.0.4 eq 23
+access-list 103 permit tcp 10.0.0.10 0.255.255.1 host 10.7.0.4 eq 23
+access-list 103 permit tcp 10.0.0.12 0.255.255.3 host 10.0.0.4 eq 23
+access-list 103 permit tcp 10.0.0.12 0.255.255.3 host 10.7.0.4 eq 23
+access-list 103 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 103 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 103 permit tcp 10.0.0.10 0.255.255.0 10.0.0.2 0.0.0.1 eq 3389
+access-list 103 permit tcp 10.3.0.0 0.0.0.255 host 10.0.0.2 eq 25
+access-list 103 permit tcp 10.3.0.0 0.0.0.255 host 10.0.0.2 eq 110
+access-list 103 permit tcp 10.3.0.0 0.0.0.255 host 10.0.0.4 eq 80
+access-list 103 permit tcp 10.3.0.0 0.0.0.255 host 10.0.0.4 eq 443
+access-list 103 permit tcp any host 10.7.0.2 eq 80
+access-list 103 permit tcp any host 10.7.0.2 eq 443
+access-list 103 permit tcp any host 10.7.0.2 eq 20
+access-list 103 permit tcp any host 10.7.0.2 eq 21
+access-list 103 permit tcp 10.3.0.0 0.0.0.255 host 10.7.0.3 eq 8300
+access-list 103 permit tcp any host 10.7.0.4 eq 5960
+
+Red4
+access-list 104 permit tcp any host 10.0.0.2 eq 53
+access-list 104 permit udp any host 10.0.0.2 eq 53
+access-list 104 permit tcp 10.0.0.10 0.255.255.1 10.0.0.2 0.0.0.1 eq 23
+access-list 104 permit tcp 10.0.0.10 0.255.255.1 10.7.0.2 0.0.0.1 eq 23
+access-list 104 permit tcp 10.0.0.10 0.255.255.1 host 10.0.0.4 eq 23
+access-list 104 permit tcp 10.0.0.10 0.255.255.1 host 10.7.0.4 eq 23
+access-list 104 permit tcp 10.0.0.12 0.255.255.3 host 10.0.0.4 eq 23
+access-list 104 permit tcp 10.0.0.12 0.255.255.3 host 10.7.0.4 eq 23
+access-list 104 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 104 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 104 permit tcp 10.0.0.10 0.255.255.0 10.0.0.2 0.0.0.1 eq 3389
+access-list 104 permit tcp 10.4.0.0 0.0.0.255 host 10.0.0.2 eq 25
+access-list 104 permit tcp 10.4.0.0 0.0.0.255 host 10.0.0.2 eq 110
+access-list 104 permit tcp 10.4.0.0 0.0.0.255 host 10.0.0.4 eq 80
+access-list 104 permit tcp 10.4.0.0 0.0.0.255 host 10.0.0.4 eq 443
+access-list 104 permit tcp any host 10.7.0.2 eq 80
+access-list 104 permit tcp any host 10.7.0.2 eq 443
+access-list 104 permit tcp any host 10.7.0.2 eq 20
+access-list 104 permit tcp any host 10.7.0.2 eq 21
+access-list 104 permit tcp 10.4.0.0 0.0.0.255 host 10.7.0.3 eq 8300
+access-list 104 permit tcp any host 10.7.0.4 eq 5960
+
+Red5
+access-list 105 permit tcp any host 10.0.0.2 eq 53
+access-list 105 permit udp any host 10.0.0.2 eq 53
+access-list 105 permit tcp 10.0.0.10 0.255.255.1 10.0.0.2 0.0.0.1 eq 23
+access-list 105 permit tcp 10.0.0.10 0.255.255.1 10.7.0.2 0.0.0.1 eq 23
+access-list 105 permit tcp 10.0.0.10 0.255.255.1 host 10.0.0.4 eq 23
+access-list 105 permit tcp 10.0.0.10 0.255.255.1 host 10.7.0.4 eq 23
+access-list 105 permit tcp 10.0.0.12 0.255.255.3 host 10.0.0.4 eq 23
+access-list 105 permit tcp 10.0.0.12 0.255.255.3 host 10.7.0.4 eq 23
+access-list 105 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 105 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 105 permit tcp 10.0.0.10 0.255.255.0 10.0.0.2 0.0.0.1 eq 3389
+access-list 105 permit tcp 10.5.0.0 0.0.0.255 host 10.0.0.2 eq 25
+access-list 105 permit tcp 10.5.0.0 0.0.0.255 host 10.0.0.2 eq 110
+access-list 105 permit tcp 10.5.0.0 0.0.0.255 host 10.0.0.4 eq 80
+access-list 105 permit tcp 10.5.0.0 0.0.0.255 host 10.0.0.4 eq 443
+access-list 105 permit tcp any host 10.7.0.2 eq 80
+access-list 105 permit tcp any host 10.7.0.2 eq 443
+access-list 105 permit tcp any host 10.7.0.2 eq 20
+access-list 105 permit tcp any host 10.7.0.2 eq 21
+access-list 105 permit tcp 10.5.0.0 0.0.0.255 host 10.7.0.3 eq 8300
+access-list 105 permit tcp any host 10.7.0.4 eq 5960
+
+ROUTER C
+Red6
+access-list 106 permit tcp any host 10.0.0.2 eq 53
+access-list 106 permit udp any host 10.0.0.2 eq 53
+access-list 106 permit tcp 10.0.0.10 0.255.255.1 10.0.0.2 0.0.0.1 eq 23
+access-list 106 permit tcp 10.0.0.10 0.255.255.1 10.7.0.2 0.0.0.1 eq 23
+access-list 106 permit tcp 10.0.0.10 0.255.255.1 host 10.0.0.4 eq 23
+access-list 106 permit tcp 10.0.0.10 0.255.255.1 host 10.7.0.4 eq 23
+access-list 106 permit tcp 10.0.0.12 0.255.255.3 host 10.0.0.4 eq 23
+access-list 106 permit tcp 10.0.0.12 0.255.255.3 host 10.7.0.4 eq 23
+access-list 106 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 106 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 106 permit tcp 10.0.0.10 0.255.255.0 10.0.0.2 0.0.0.1 eq 3389
+access-list 106 permit tcp 10.6.0.0 0.0.0.255 host 10.0.0.2 eq 25
+access-list 106 permit tcp 10.6.0.0 0.0.0.255 host 10.0.0.2 eq 110
+access-list 106 permit tcp 10.6.0.0 0.0.0.255 host 10.0.0.4 eq 80
+access-list 106 permit tcp 10.6.0.0 0.0.0.255 host 10.0.0.4 eq 443
+access-list 106 permit tcp 10.6.0.0 0.0.0.255 host 10.0.0.3 eq 80
+access-list 106 permit tcp 10.6.0.0 0.0.0.255 host 10.0.0.3 eq 443
+access-list 106 permit tcp any host 10.0.0.3 eq 80
+access-list 106 permit tcp any host 10.0.0.3 eq 443
+access-list 106 permit tcp any host 10.7.0.2 eq 80
+access-list 106 permit tcp any host 10.7.0.2 eq 443
+access-list 106 permit tcp any host 10.7.0.2 eq 20
+access-list 106 permit tcp any host 10.7.0.2 eq 21
+access-list 106 permit tcp 10.6.0.0 0.0.0.255 host 10.7.0.3 eq 8300
+access-list 106 permit tcp any host 10.7.0.4 eq 5960
+
+Red7
+access-list 107 permit tcp any host 10.0.0.2 eq 53
+access-list 107 permit udp any host 10.0.0.2 eq 53
+access-list 107 permit tcp 10.0.0.10 0.255.255.1 10.0.0.2 0.0.0.1 eq 23
+access-list 107 permit tcp 10.0.0.10 0.255.255.1 10.7.0.2 0.0.0.1 eq 23
+access-list 107 permit tcp 10.0.0.10 0.255.255.1 host 10.0.0.4 eq 23
+access-list 107 permit tcp 10.0.0.10 0.255.255.1 host 10.7.0.4 eq 23
+access-list 107 permit tcp 10.0.0.12 0.255.255.3 host 10.0.0.4 eq 23
+access-list 107 permit tcp 10.0.0.12 0.255.255.3 host 10.7.0.4 eq 23
+access-list 107 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 107 permit tcp 10.0.0.12 0.255.255.3 10.0.0.2 0.0.0.1 eq 23
+access-list 107 permit tcp 10.0.0.10 0.255.255.0 10.0.0.2 0.0.0.1 eq 3389
+access-list 107 permit tcp 10.7.0.0 0.0.0.255 host 10.0.0.2 eq 25
+access-list 107 permit tcp 10.7.0.0 0.0.0.255 host 10.0.0.2 eq 110
+access-list 107 permit tcp 10.7.0.0 0.0.0.255 host 10.0.0.4 eq 80
+access-list 107 permit tcp 10.7.0.0 0.0.0.255 host 10.0.0.4 eq 443
+access-list 107 permit tcp any host 10.7.0.2 eq 80
+access-list 107 permit tcp any host 10.7.0.2 eq 443
+access-list 107 permit tcp any host 10.7.0.2 eq 20
+access-list 107 permit tcp any host 10.7.0.2 eq 21
+access-list 107 permit tcp 10.7.0.0 0.0.0.255 host 10.7.0.3 eq 8300
+access-list 107 permit tcp any host 10.7.0.4 eq 5960
+
+ROUTER D
+Red8
+access-list 108 permit tcp any host 10.0.0.2 eq 53
+access-list 108 permit udp any host 10.0.0.2 eq 53
+access-list 108 permit tcp 12.0.0.10 0.0.0.1 host 10.7.0.2 eq 23
+access-list 108 permit tcp 12.0.0.12 0.0.0.3 host 10.7.0.2 eq 23
+access-list 108 permit tcp 12.0.0.16 0.0.0.3 host 10.7.0.2 eq 23
+access-list 108 permit tcp host 12.0.0.20 host 10.7.0.2 eq 23
+access-list 108 permit tcp 12.0.0.0 0.0.0.255 host 10.0.0.3 eq 25
+access-list 108 permit tcp 12.0.0.0 0.0.0.255 host 10.0.0.3 eq 110
+access-list 108 permit tcp 12.0.0.0 0.0.0.255 host 10.7.0.4 eq 80
+access-list 108 permit tcp 12.0.0.0 0.0.0.255 host 10.7.0.4 eq 443
+access-list 108 permit tcp any host 10.7.0.2 eq 80
+access-list 108 permit tcp any host 10.7.0.2 eq 443
+access-list 108 permit tcp any host 10.7.0.2 eq 20
+access-list 108 permit tcp any host 10.7.0.2 eq 21
+access-list 108 permit tcp any host 10.7.0.4 eq 5960
+
+Red9
+access-list 109 permit tcp any host 10.0.0.2 eq 53
+access-list 109 permit udp any host 10.0.0.2 eq 53
+access-list 109 permit tcp 12.1.0.0 0.0.0.255 host 10.7.0.4 eq 80
+access-list 109 permit tcp 12.1.0.0 0.0.0.255 host 10.7.0.4 eq 443
+access-list 109 permit tcp 12.1.0.0 0.0.0.255 host 10.0.0.3 eq 25
+access-list 109 permit tcp 12.1.0.0 0.0.0.255 host 10.0.0.3 eq 110
+access-list 109 permit tcp any host 10.7.0.2 eq 80
+access-list 109 permit tcp any host 10.7.0.2 eq 443
+access-list 109 permit tcp any host 10.7.0.2 eq 20
+access-list 109 permit tcp any host 10.7.0.2 eq 21
+access-list 109 permit tcp any host 10.7.0.4 eq 5960
+
+Red10
+access-list 110 permit tcp any host 10.0.0.2 eq 53
+access-list 110 permit udp any host 10.0.0.2 eq 53
+access-list 110 permit tcp 12.2.0.0 0.0.0.255 host 10.7.0.4 eq 80
+access-list 110 permit tcp 12.2.0.0 0.0.0.255 host 10.7.0.4 eq 443
+access-list 110 permit tcp 12.2.0.0 0.0.0.255 host 10.0.0.3 eq 25
+access-list 110 permit tcp 12.2.0.0 0.0.0.255 host 10.0.0.3 eq 110
+access-list 110 permit tcp any host 10.7.0.2 eq 80
+access-list 110 permit tcp any host 10.7.0.2 eq 443
+access-list 110 permit tcp any host 10.7.0.2 eq 20
+access-list 110 permit tcp any host 10.7.0.2 eq 21
+access-list 110 permit tcp any host 10.7.0.4 eq 5960
+
+ROUTER E
+Red11
+access-list 111 permit tcp any host 10.0.0.2 eq 53
+access-list 111 permit udp any host 10.0.0.2 eq 53
+access-list 111 permit tcp host 13.0.0.5 host 10.7.0.3 eq 23
+access-list 111 permit tcp 13.0.0.6 0.0.0.1 host 10.7.0.3 eq 23
+access-list 111 permit tcp 13.0.0.8 0.0.0.7 host 10.7.0.3 eq 23
+access-list 111 permit tcp 13.0.0.16 0.0.0.7 host 10.7.0.3 eq 23
+access-list 111 permit tcp 13.0.0.24 0.0.0.1 host 10.7.0.3 eq 23
+access-list 111 permit tcp 13.0.0.0 0.0.0.255 host 10.7.0.4 eq 80
+access-list 111 permit tcp 13.0.0.0 0.0.0.255 host 10.7.0.4 eq 443
+access-list 111 permit tcp 13.0.0.0 0.0.0.255 host 10.0.0.3 eq 25
+access-list 111 permit tcp 13.0.0.0 0.0.0.255 host 10.0.0.3 eq 110
+access-list 111 permit tcp any host 10.7.0.2 eq 80
+access-list 111 permit tcp any host 10.7.0.2 eq 443
+access-list 111 permit tcp any host 10.7.0.2 eq 20
+access-list 111 permit tcp any host 10.7.0.2 eq 21
+access-list 111 permit tcp any host 10.7.0.4 eq 5960
+
+Red12
+access-list 112 permit tcp any host 10.0.0.2 eq 53
+access-list 112 permit udp any host 10.0.0.2 eq 53
+access-list 112 permit tcp 13.1.0.0 0.0.0.255 host 10.0.0.3 eq 25
+access-list 112 permit tcp 13.1.0.0 0.0.0.255 host 10.0.0.3 eq 110
+access-list 112 permit tcp any host 10.7.0.2 eq 80
+access-list 112 permit tcp any host 10.7.0.2 eq 443
+access-list 112 permit tcp any host 10.7.0.2 eq 20
+access-list 112 permit tcp any host 10.7.0.2 eq 21
+access-list 112 permit tcp any host 10.7.0.4 eq 5960
+
+
